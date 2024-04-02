@@ -1,37 +1,30 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin'); // Импортируем плагин
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require("webpack"); // Импортируем плагин
 
-let mode = 'development';
-if (process.env.NODE_ENV === 'production') {
-    mode = 'production';
-}
+// let mode = 'development';
+// if (process.env.NODE_ENV === 'production') {
+//     mode = 'production';
+// }
 
 module.exports = {
     mode: 'development',
-    devtool: 'inline-source-map',
+    // devtool: 'inline-source-map',
     plugins: [
         new HtmlWebpackPlugin(
-            {template: path.resolve(process.cwd(), 'src', 'index.html')}
-        )
+            {template: path.resolve(process.cwd(), 'public', 'index.html')}
+        ),
+        new webpack.ProgressPlugin(),
     ],
-    entry: path.resolve(process.cwd(), 'src', 'index.tsx'),
+    entry: {
+        appBuild: path.resolve(process.cwd(), 'src', 'index.ts')
+    },
     module: {
         rules: [
-            { test: /\.(html)$/, use: ['html-loader'] }, // Добавляем загрузчик для html
             {
                 test: /\.tsx$/,
                 exclude: /node_modules/, // не обрабатываем файлы из node_modules
                 use: 'ts-loader'
-            },
-            {
-                test: /\.jsx?$/, // обновляем регулярное выражение для поддержки jsx
-                exclude: /node_modules/,
-                use: {
-                    loader: 'babel-loader',
-                    options: {
-                        cacheDirectory: true,
-                    },
-                },
             },
         ],
     },
@@ -39,10 +32,11 @@ module.exports = {
         extensions: ['.tsx', '.ts', '.js'],
     },
     output: {
+        filename: "[name].[contenthash].js",
         path: path.resolve(process.cwd(), 'dist'),
         clean: true,
     },
-    devServer: {
-        hot: true,
-    }
+    // devServer: {
+    //     hot: true,
+    // }
 }
