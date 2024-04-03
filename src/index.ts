@@ -1,1 +1,1 @@
-const a: number = 5;
+const a = 5;

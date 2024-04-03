@@ -1,13 +1,22 @@
 {
   "compilerOptions": {
     "outDir": "./dist/",
-    "sourceMap": true,
     "noImplicitAny": true,
-    "module": "es6",
+    "module": "ESNext",
+    // версия в которую ts будет компилироваться
     "target": "es5",
     "jsx": "react",
+    // позволяет обрабатывать js файлы
     "allowJs": true,
     "moduleResolution": "node",
+    // позволяет работать с пакетами, которые используют
+    // commonjs как с обычными пакетами с помощью import
+    "esModuleInterop": true,
     "allowSyntheticDefaultImports": true
+  },
+  "ts-node": {
+    "compilerOptions": {
+      "module": "CommonJS"
+    }
   }
 }
