@@ -9,6 +9,7 @@
     // позволяет обрабатывать js файлы
     "allowJs": true,
     "moduleResolution": "node",
+    "baseUrl": ".",
     // позволяет работать с пакетами, которые используют
     // commonjs как с обычными пакетами с помощью import
     "esModuleInterop": true,
