@@ -5,7 +5,7 @@
     "module": "ESNext",
     // версия в которую ts будет компилироваться
     "target": "es5",
-    "jsx": "react",
+    "jsx": "react-jsx",
     // позволяет обрабатывать js файлы
     "allowJs": true,
     "moduleResolution": "node",

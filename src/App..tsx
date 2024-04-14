@@ -1,7 +1,11 @@
 import React from "react"
+import {Header} from "./components/Header";
 
 export const App = () => {
     return (
-        <div>Hello World</div>
+        <>
+            <Header />
+            <div>Hellk World</div>
+        </>
     )
 }
