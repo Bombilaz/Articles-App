@@ -1,11 +1,12 @@
-import React from "react"
+import React from "react";
 import {Header} from "./components/Header";
+import './index.scss';
 
 export const App = () => {
     return (
         <>
             <Header />
-            <div>Hellk World</div>
+            <div className='test'>Hellk World</div>
         </>
     )
 }

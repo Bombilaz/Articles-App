@@ -1,9 +1,10 @@
 import {FunctionComponent} from "react";
-import './Header.scss';
+import classes from './Header.module.scss'
 
 export const Header: FunctionComponent = () => {
+    console.log(classes)
     return (
-        <div>
+        <div className={classes.testModule}>
             <span>my arctiles</span>
             <span>all articles</span>
             <span>profile</span>
