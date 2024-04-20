@@ -2,19 +2,20 @@ import React, {Suspense} from "react";
 import {Header} from "./components/Header";
 import './styles/index.scss';
 import { Route, Routes } from "react-router-dom";
+import {useTheme} from "./theme/useTheme";
+import {classNames} from "./helpers/classNames/classNames";
 import {
     AllArticlesAsync,
     AddArticleAsync,
     MyArticlesAsync,
     ProfileAsync
 } from "./pages";
-import {useTheme} from "./theme/useTheme";
 
 export const App = () => {
     const {theme} = useTheme()
 
     return (
-        <div className={`app ${theme}`}>
+        <div className={classNames('app', {}, [theme])}>
             <Header />
 
             <Suspense fallback={<div>Загрузка.....</div>}>
